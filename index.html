@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        var originalWord = "Me hablo espanol";
+
+        var displayText = "";
+
+        for (i = 0; i < originalWord.length; i++) {
+            displayText += "_ "
+        }
+
+        var guessedLetter = prompt(displayText + "Please Guess the Letter")
+
+        for (i = 0; i < originalWord.length; i++) {
+            if (originalWord.charAt(i) == guessedLetter){
+                console.log(originalWord.charAt(i))
+            }
+                
+
+        }
+
+    </script>
+</body>
+
+</html>
