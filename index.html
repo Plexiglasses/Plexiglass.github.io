@@ -1,34 +1,58 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
-</head>
+  </head>
 
-<body>
+  <body>
     <script>
-        var originalWord = "Me hablo espanol";
+      var originalWord = "Alphabet";
+      var displayText = "";
+      var gameTurn = true;
+      var lives = 10;
 
-        var displayText = "";
+      for (i = 0; i < originalWord.length; i++) {
+        displayText += "-";
+      }
+      while (gameTurn == true) {
+        var noCorrectWords = true;
+        var guessedLetter = prompt(
+          displayText +
+            "  Please Guess the Letter" +
+            " Amount of " +
+            lives +
+            " lives"
+        );
 
         for (i = 0; i < originalWord.length; i++) {
-            displayText += "_ "
+          if (originalWord.charAt(i) == guessedLetter) {
+            displayText =
+              displayText.substring(0, i) +
+              guessedLetter +
+              displayText.substring(i + 1, displayText.length);
+            noCorrectWords = false;
+          }
         }
 
-        var guessedLetter = prompt(displayText + "Please Guess the Letter")
 
-        for (i = 0; i < originalWord.length; i++) {
-            if (originalWord.charAt(i) == guessedLetter){
-                console.log(originalWord.charAt(i))
-            }
-                
-
+        if (noCorrectWords == true) {
+          lives--;
         }
-
+        if (guessedLetter == "quit") {
+          gameTurn = false;
+        }
+        if (displayText == originalWord) {
+          gameTurn = false;
+          alert("Game win");
+        }
+        if (lives == 0) {
+            gameTurn = false;
+            alert("get good, you lost")
+        }
+      }
     </script>
-</body>
-
+  </body>
 </html>
